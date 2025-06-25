@@ -55,14 +55,14 @@ js_projekt/
 |-- utils/
 |   |-- __init__.py
 |   |-- file_manager.py     # Zapis/odczyt z JSON używając szyfrowania i deszyfrowania
-|   |-- data_visualizer.py  # Tworzenie wykresów i zapisywanie ich w plikach .png
+|   |-- data_visualizer.py  # Tworzenie i pokazywanie wykresów sald kont użytkowników
 |
 |-- tests/
 |   |-- __init__.py
 |   |-- test_accounts.py    # Testy z użyciem unittest
 |   |-- test_memory.py      # Test pamięci memory_profiler
 |
-|-- data/                   # Folder, do którego zapisywane są dane .json, klucz i wykresy
+|-- data/                   # Folder, do którego zapisywane są dane .json i klucz
 |   |-- secret.key          # Klucz do szyfrowania i deszyfrowania
 |-- README.md
 ```
