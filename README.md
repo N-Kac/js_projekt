@@ -41,7 +41,7 @@ python -m memory_profiler tests/test_memory.py
 ```
 
 ## Przykładowe dane
-W pliku data/bank_data.json zostały przygotowane przykładowe dane.
+W pliku data/bank_data.json zostały przygotowane przykładowe dane.  
 Użytkownicy i ich hasła:
 ```
 1: Robert - hasło: admin
@@ -55,9 +55,9 @@ js_projekt/
 |-- main.py                 # Główna aplikacja (interfejs tekstowy)
 |-- classes/
 |   |-- __init__.py
-|   |-- user.py             # Klasa User
-|   |-- account.py          # Klasa Account
-|   |-- transaction.py      # Klasa Transaction
+|   |-- user.py             # Klasa User (użytkownik)
+|   |-- account.py          # Klasa Account (konto)
+|   |-- transaction.py      # Klasa Transaction (transakcja)
 |   |-- exceptions.py       # Własne wyjątki
 |
 |-- utils/
@@ -71,6 +71,7 @@ js_projekt/
 |   |-- test_memory.py      # Test pamięci memory_profiler
 |
 |-- data/                   # Folder, do którego zapisywane są dane .json i klucz
+|   |-- bank_data.json      # Plik, w którym przechowywani są użytkownicy, konta i transakcje
 |   |-- secret.key          # Klucz do szyfrowania i deszyfrowania
 |-- README.md
 ```
