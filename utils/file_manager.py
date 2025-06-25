@@ -1,9 +1,23 @@
+import os
 import json
+from cryptography.fernet import Fernet
 from classes.user import User
 from classes.account import Account
 from classes.transaction import Transaction
 
-# Zapisuje listę użytkowników i ich danych do pliku JSON
+# Tworzenie klucza do szyfrowania i deszyfrowania oraz zapisanie go do pliku, jeśli nie istnieje 
+# lub załadowanie go z pliku, jeśli już istnieje
+if not os.path.exists("data/secret.key"):
+    key = Fernet.generate_key()
+    os.makedirs(os.path.dirname("data/secret.key"), exist_ok=True)
+    with open("data/secret.key", "wb") as key_file:
+        key_file.write(key)
+else:
+    with open("data/secret.key", "rb") as key_file:
+        key = key_file.read()
+fernet = Fernet(key)
+
+# Funkcja zapisująca listę użytkowników i ich danych do pliku JSON
 # users - lista użytkowników
 # filename - nazwa pliku, w którym lista zostanie zapisana
 def save_users_to_file(users, filename="data/bank_data.json"):
@@ -23,18 +37,24 @@ def save_users_to_file(users, filename="data/bank_data.json"):
             ],
         }
         data.append(user_data)
+    
+    encrypted = fernet.encrypt(json.dumps(data).encode())
+    with open(filename, "wb") as f:
+        f.write(encrypted)
+    #with open(filename, "w", encoding="utf-8") as f:
+    #    json.dump(data, f, indent=4)
 
-    with open(filename, "w", encoding="utf-8") as f:
-        json.dump(data, f, indent=4)
-
-# Wczytuje użytkowników i konta z pliku JSON
+# Funkcja wczytująca użytkowników i konta z pliku JSON
 # filename - nazwa pliku, z którego lista zostanie wyczytana
 def load_users_from_file(filename="data/bank_data.json"):
     users = []
-
     try:
-        with open(filename, "r", encoding="utf-8") as f:
-            data = json.load(f)
+        #with open(filename, "r", encoding="utf-8") as f:
+        #    data = json.load(f)
+        with open(filename, "rb") as f:
+            encrypted = f.read()
+        decrypted = fernet.decrypt(encrypted)
+        data = json.loads(decrypted.decode())
     except FileNotFoundError:
         return []
 

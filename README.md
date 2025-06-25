@@ -6,7 +6,7 @@ Celem projektu było stworzenie prostego symulatora banku w Pythonie z:
 - obsługą wielu użytkowników,
 - kontami bankowymi,
 - transakcjami (wpłata, wypłata, przelew),
-- zapisem danych do pliku `.json`,
+- zapisem danych do pliku `.json` (z szyfrowaniem i deszyfrowaniem),
 - filtrowaniem transakcji,
 - prostym interfejsem tekstowym,
 - testami,
@@ -17,6 +17,7 @@ Celem projektu było stworzenie prostego symulatora banku w Pythonie z:
 - Python 3.13+
 - matplotlib (do wykresów)
 - memory_profiler (testy pamięci)
+- cryptography (szyfrowanie/deszyfrowanie)
 - json
 - datetime
 - unittest
@@ -25,6 +26,7 @@ Instalacja bibliotek:
 ```bash
 pip install matplotlib
 pip install memory_profiler
+pip install cryptography
 ```
 
 ## Uruchamianie
@@ -52,7 +54,7 @@ js_projekt/
 |
 |-- utils/
 |   |-- __init__.py
-|   |-- file_manager.py     # Zapis/odczyt użytkowników, kont oraz transakcji z JSON
+|   |-- file_manager.py     # Zapis/odczyt z JSON używając szyfrowania i deszyfrowania
 |   |-- data_visualizer.py  # Tworzenie wykresów i zapisywanie ich w plikach .png
 |
 |-- tests/
@@ -60,6 +62,7 @@ js_projekt/
 |   |-- test_accounts.py    # Testy z użyciem unittest
 |   |-- test_memory.py      # Test pamięci memory_profiler
 |
-|-- data/                   # Folder, do którego zpisywane są dane .json i wykresy
+|-- data/                   # Folder, do którego zapisywane są dane .json, klucz i wykresy
+|   |-- secret.key          # Klucz do szyfrowania i deszyfrowania
 |-- README.md
 ```
