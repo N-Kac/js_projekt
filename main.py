@@ -123,10 +123,10 @@ def user_menu(user):
         print("[3] WPŁAĆ NA KONTO")
         print("[4] WYPŁAĆ Z KONTA")
         print("[5] WYKONAJ PRZELEW")
-        print("[6] WYŚWIETL TRANSKACJE KONTA")
+        print("[6] WYŚWIETL TRANSAKCJE KONTA")
         print("[7] WYGENERUJ WYKRES")
         print("[8] WYŚWIETL ŁĄCZNE SALDO")
-        print("[9] WYSZUKAJ TRANSKACJE")
+        print("[9] WYSZUKAJ TRANSAKCJE")
         print("[0] WYLOGUJ")
 
         choice = input("OPCJA: ")

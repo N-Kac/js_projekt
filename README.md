@@ -40,6 +40,14 @@ python -m unittest tests/test_accounts.py
 python -m memory_profiler tests/test_memory.py
 ```
 
+## Przykładowe dane
+W pliku data/bank_data.json zostały przygotowane przykładowe dane.
+Użytkownicy i ich hasła:
+```
+1: Robert - hasło: admin
+2: Adam - hasło: admin2
+```
+
 ## Struktura modułów
 ```
 js_projekt/
