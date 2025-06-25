@@ -57,10 +57,17 @@ def main_menu():
             sys.exit()
         elif option == '2':
             print("--- TWORZENIE NOWEGO UŻYTKOWNIKA ---")
-            name = input("Nazwa: ")
-            password = input("Hasło: ")
+            name = input("Nazwa: ").strip()
+            if not name:
+                print("Nazwa nie może być pusta!")
+                continue
+            password = input("Hasło: ").strip()
+            if len(password) < 3:
+                print("Hasło musi mieć co najmniej 3 znaki!")
+                continue
             new_user = User(len(users) + 1, name, password)
             users.append(new_user)
+            save_users_to_file(users)
             return new_user
         elif option == '3':
             plot_account_balances(users)
