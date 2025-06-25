@@ -53,7 +53,7 @@ def main_menu():
                 if password == user.password:
                     return user
                 print("Nieprawidłowe hasło!\n")
-            print("\nZa dużo nieudanych prób logowania! Zamykanie programu...")
+            print("Za dużo nieudanych prób logowania! Zamykanie programu...")
             sys.exit()
         elif option == '2':
             print("--- TWORZENIE NOWEGO UŻYTKOWNIKA ---")
@@ -132,9 +132,11 @@ def user_menu(user):
         choice = input("OPCJA: ")
         if choice == '1':
             print("--- TWORZENIE NOWEGO KONTA ---")
-            balance = float(input("Saldo początkowe: "))
-            acc = user.create_account(balance)
-            print(f"Utworzono konto o ID {acc.account_id} z saldem {acc.balance:.2f} PLN!")
+            again = input("Czy jesteś pewien? (T/N): ").strip().lower()
+            if again != 't':
+                continue
+            acc = user.create_account()
+            print(f"Utworzono konto o ID {acc.account_id}!")
             save_users_to_file(users)
         elif choice == '2':
             show_accounts(user)
