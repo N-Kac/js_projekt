@@ -41,16 +41,12 @@ def save_users_to_file(users, filename="data/bank_data.json"):
     encrypted = fernet.encrypt(json.dumps(data).encode())
     with open(filename, "wb") as f:
         f.write(encrypted)
-    #with open(filename, "w", encoding="utf-8") as f:
-    #    json.dump(data, f, indent=4)
 
 # Funkcja wczytująca użytkowników i konta z pliku JSON
 # filename - nazwa pliku, z którego lista zostanie wyczytana
 def load_users_from_file(filename="data/bank_data.json"):
     users = []
     try:
-        #with open(filename, "r", encoding="utf-8") as f:
-        #    data = json.load(f)
         with open(filename, "rb") as f:
             encrypted = f.read()
         decrypted = fernet.decrypt(encrypted)
