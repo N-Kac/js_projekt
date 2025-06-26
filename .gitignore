@@ -1,4 +1,3 @@
 data/test_file.json
-data/*.png
 __pycache__/
 *.py[codz]
