@@ -2,8 +2,9 @@ import matplotlib.pyplot as plt
 
 # Generuje wykres słupkowy sald kont wszystkich użytkownika i zapisuje do PNG
 # users - lista użytkowników
-def plot_account_balances(users):
-    plt.figure(num="Salda kont użytkowników")
+# save_path - nazwa pliku, do którego zostanie zapisany wkyres
+def plot_account_balances(users, save_path="data/salda_uzytkownikow.png"):
+    fig = plt.figure(num="Salda kont użytkowników")
     labels = list(map(lambda user: user.name, users))
     balances = list(map(lambda user: user.total_balance(), users))
     bars = plt.bar(labels, balances)
@@ -21,12 +22,19 @@ def plot_account_balances(users):
     plt.tight_layout()
     plt.show()
 
+    # Zapytanie użytkownika czy chce zapisać do pliku
+    save = input("Czy zapisać wykres do pliku? (T/N): ").strip().lower()
+    if save == 't':
+        fig.savefig(save_path)
+        print(f"Wykres został zapisany jako '{save_path}'.")
+
     plt.close()
 
 # Generuje wykres słupkowy sald kont danego użytkownika i zapisuje do PNG
 # user - użytkownik
-def plot_user_account_balances(user):
-    plt.figure(num=f"Salda kont użytkownika {user.name}")
+# save_path - nazwa pliku, do którego zostanie zapisany wkyres
+def plot_user_account_balances(user, save_path=None):
+    fig = plt.figure(num=f"Salda kont użytkownika {user.name}")
     labels = list(map(lambda acc: f"{user.name}-{acc.account_id}", user.accounts))
     balances = list(map(lambda acc: acc.balance, user.accounts))
 
@@ -44,5 +52,13 @@ def plot_user_account_balances(user):
     # Pokazanie wykresu
     plt.tight_layout()
     plt.show()
+
+    if not save_path:
+        save_path = f"data/saldo_{user.name.lower()}.png"
+    # Zapytanie użytkownika czy chce zapisać do pliku
+    save = input("Czy zapisać wykres do pliku? (T/N): ").strip().lower()
+    if save == 't':
+        fig.savefig(save_path)
+        print(f"Wykres został zapisany jako '{save_path}'.")
 
     plt.close()

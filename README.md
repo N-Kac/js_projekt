@@ -12,6 +12,10 @@ Celem projektu było stworzenie prostego symulatora banku w Pythonie z:
 - testami,
 - wizualizacją salda kont.
 
+## Autorzy
+- Kacper Nowak, 2ID13B
+- Dominik Nowak, 2ID13B
+
 ## Wymagania
 
 - Python 3.13+
@@ -70,7 +74,7 @@ js_projekt/
 |   |-- test_accounts.py    # Testy z użyciem unittest
 |   |-- test_memory.py      # Test pamięci memory_profiler
 |
-|-- data/                   # Folder, do którego zapisywane są dane .json i klucz
+|-- data/                   # Folder, do którego zapisywane są dane .json, klucz oraz wykresy
 |   |-- bank_data.json      # Plik, w którym przechowywani są użytkownicy, konta i transakcje
 |   |-- secret.key          # Klucz do szyfrowania i deszyfrowania
 |-- README.md
