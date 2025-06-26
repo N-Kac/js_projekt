@@ -22,9 +22,11 @@ Celem projektu było stworzenie prostego symulatora banku w Pythonie z:
 - matplotlib (do wykresów)
 - memory_profiler (testy pamięci)
 - cryptography (szyfrowanie/deszyfrowanie)
-- json
-- datetime
-- unittest
+- json (obsługa plików .json)
+- datetime (pobieranie obecnej daty i godziny)
+- unittest (do testowania)
+- functools
+- timeit (mierzenie czasu w teście wydajnościowym)
 
 Instalacja bibliotek:
 ```bash
@@ -57,19 +59,19 @@ Użytkownicy i ich hasła:
 js_projekt/
 |
 |-- main.py                 # Główna aplikacja (interfejs tekstowy)
-|-- classes/
+|-- classes/                # Klasy
 |   |-- __init__.py
 |   |-- user.py             # Klasa User (użytkownik)
 |   |-- account.py          # Klasa Account (konto)
 |   |-- transaction.py      # Klasa Transaction (transakcja)
 |   |-- exceptions.py       # Własne wyjątki
 |
-|-- utils/
+|-- utils/                  # Funkcje do obsługi plików i tworzenia wykresów
 |   |-- __init__.py
 |   |-- file_manager.py     # Zapis/odczyt z JSON używając szyfrowania i deszyfrowania
 |   |-- data_visualizer.py  # Tworzenie i pokazywanie wykresów sald kont użytkowników
 |
-|-- tests/
+|-- tests/                  # Testy
 |   |-- __init__.py
 |   |-- test_accounts.py    # Testy z użyciem unittest
 |   |-- test_memory.py      # Test pamięci memory_profiler
@@ -77,5 +79,5 @@ js_projekt/
 |-- data/                   # Folder, do którego zapisywane są dane .json, klucz oraz wykresy
 |   |-- bank_data.json      # Plik, w którym przechowywani są użytkownicy, konta i transakcje
 |   |-- secret.key          # Klucz do szyfrowania i deszyfrowania
-|-- README.md
+|-- README.md               # Opis projektu
 ```
